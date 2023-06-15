@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login & Signup Form</title>
+    <link rel="stylesheet" href="loginstyle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <div id="loginResult"></div>
+      <div id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="username"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="login()">Login</button>
+        </div>
+      </div>
+      <div id="todoResult"></div>
+    </div>
+    <script>
+      function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const url = "http://localhost:4242/api/user/login";
+
+        const requestBody = { username, password };
+
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("Invalid username or password");
+            }
+          })
+
+          .then((data) => {
+            localStorage.setItem("user", JSON.stringify(data.user));
+            localStorage.setItem("token", data.token);
+
+            document.getElementById("loginResult").innerHTML =
+              JSON.stringify(data);
+
+            window.location.href = "/FrontEnd/index.html";
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

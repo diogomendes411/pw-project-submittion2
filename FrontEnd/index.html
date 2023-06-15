@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CvDiogo</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">My Resume</a>
+      <div class="login-container">
+        <a href="login.html" class="login-link">Login</a>
+        <button id="logoutButton" class="login-container" onclick="logout()">
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="wrapper" id="educationFormWrapper">
+        <button class="close-button" id="closeButton">X</button>
+        <span class="icon-close">
+          <i class="bx bx-x"></i>
+        </span>
+        <div class="logreg-box"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrapper-container">
+        <div class="left-side">
+          <div class="left-up">
+            <div class="photo-container">
+              <img class="photo" src="Photo.jpg" alt="MyPhoto" />
+            </div>
+            <div class="nome-intro-container">
+              <div>
+                <h2>Diogo Mendes</h2>
+                <p>
+                  My name is Diogo and i'm 23 years old, student of Network
+                  Engineering Degree at IPVC. I consider myself a work person,
+                  enthusiastic of IT.
+                </p>
+                <br />
+                <p>Contact: 912420769</p>
+                <p>Email: diogosednem@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="left-down">
+            <div class="langs-box">
+              <h1 style="text-decoration: underline">LANGUAGES</h1>
+              <br />
+              <ul>
+                <li>Portuguese</li>
+                <li>English</li>
+              </ul>
+            </div>
+            <div class="interest-subjects">
+              <h2 style="text-decoration: underline">INTEREST SUBJECTS</h2>
+              <h3>CYBERSECURITY</h3>
+              <ul>
+                <li>Pentesting</li>
+                <li>Forensic Analysis</li>
+              </ul>
+              <h3>LINUX SYSTEM ADMINISTRATOR</h3>
+              <ul>
+                <li>
+                  User, Group, Privileges, Processes, Editing Files, Scripts ..
+                </li>
+              </ul>
+              <h3>NETWORK ARCHITECTURE</h3>
+              <ul>
+                <li>Design Networks</li>
+                <li>Troubleshooting Problems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="academic-container">
+            <h1>ACADEMIC EDUCATION</h1>
+            <div id="academic-container"></div>
+            <button id="addButton" class="button">Adicionar</button>
+
+            <div id="modal" class="wrapper">
+              <h2>Adicionar Educação</h2>
+              <div id="closeAddButton" class="close-button">&times;</div>
+              <form id="educationForm">
+                <input
+                  type="text"
+                  id="institution"
+                  placeholder="Instituição"
+                  required
+                />
+                <input
+                  type="text"
+                  id="courseType"
+                  placeholder="Tipo de Curso"
+                  required
+                />
+                <input
+                  type="text"
+                  id="courseName"
+                  placeholder="Nome do Curso"
+                  required
+                />
+                <input type="submit" value="Enviar" />
+              </form>
+            </div>
+            <div id="editModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="editForm">
+                  <label for="editInstitution">Institution:</label><br />
+                  <input
+                    type="text"
+                    id="editInstitution"
+                    name="editInstitution"
+                  /><br />
+                  <label for="editCourseType">Course Type:</label><br />
+                  <input
+                    type="text"
+                    id="editCourseType"
+                    name="editCourseType"
+                  /><br />
+                  <label for="editCourseName">Course Name:</label><br />
+                  <input
+                    type="text"
+                    id="editCourseName"
+                    name="editCourseName"
+                  /><br />
+                  <input type="submit" value="Submit" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
